@@ -1,0 +1,53 @@
+{
+  "name": "airctrl",
+  "version": "1.0.0",
+  "description": "Gesture-Based System Navigation Tool",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "concurrently -k \"npm run react\" \"npm run electron:wait\"",
+    "react": "cd frontend && npm start",
+    "electron": "cross-env NODE_ENV=development electron .",
+    "electron:wait": "wait-on http://localhost:3000 && cross-env NODE_ENV=development electron .",
+    "build": "cd frontend && npm run build && cd .. && electron-builder",
+    "install:all": "npm install && cd frontend && npm install",
+    "setup:python": "pip3 install -r backend/requirements.txt"
+  },
+  "keywords": [
+    "gesture",
+    "mediapipe",
+    "electron",
+    "react"
+  ],
+  "author": "AirCtrl",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1",
+    "wait-on": "^7.2.0"
+  },
+  "build": {
+    "appId": "com.airctrl.app",
+    "productName": "AirCtrl",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "electron/**/*",
+      "frontend/build/**/*",
+      "backend/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  },
+  "dependencies": {
+    "cross-env": "^10.1.0"
+  }
+}
