@@ -1,50 +1,126 @@
-# AirCtrl — Gesture-Based System Navigation
+# 🚀 AirCtrl — Gesture-Based System Navigation
 
-Control your computer with hand gestures via webcam using MediaPipe, OpenCV, and Electron.
+Control your computer using **hand gestures via webcam**.
+Built with **MediaPipe, OpenCV, React, and Electron**, AirCtrl enables touchless interaction for cursor control, clicks, scrolling, and system actions.
 
-## Requirements
+---
 
-- Node.js 18+
-- Python 3.8+
-- pip3
-- A webcam
+## ✨ Features
 
-## Setup & Run
+* 🖐️ Real-time hand tracking using MediaPipe
+* 🖱️ Cursor control with index finger
+* 👆 Gesture-based click interactions
+* 🔊 Volume control using hand gestures
+* 📜 Smooth scrolling support
+* ⚡ Cross-platform desktop app (Electron)
+
+---
+
+## 🧠 Tech Stack
+
+* **Frontend:** React, Tailwind CSS
+* **Desktop App:** Electron
+* **Backend:** Python
+* **Computer Vision:** MediaPipe, OpenCV
+* **Automation:** PyAutoGUI
+
+---
+
+## ⚙️ Requirements
+
+* Node.js (v18 or higher)
+* Python **3.11 (recommended)**
+* pip
+* Webcam
+
+---
+
+## 🛠️ Setup & Run
 
 ```bash
-# 1. Install Python dependencies
-pip3 install -r backend/requirements.txt
+# 1. Create Python virtual environment (recommended)
+py -3.11 -m venv venv
+venv\Scripts\activate
 
-# 2. Install Node dependencies (root + frontend)
+# 2. Install Python dependencies
+pip install -r backend/requirements.txt
+
+# 3. Install Node dependencies (root + frontend)
 npm run install:all
 
-# 3. Start the app
+# 4. Start the app
 npm start
 ```
 
-## Gestures
+---
 
-| Gesture | Action |
-|---------|--------|
-| ☝️ Index finger | Move cursor |
-| ✌️ Two fingers | Scroll |
-| 👍 Thumb up | Volume up |
-| 👎 Thumb down | Volume down |
-| ✊ Fist | Idle / pause |
+## 🎮 Gesture Controls
 
-## Architecture
+| Gesture          | Action         |
+| ---------------- | -------------- |
+| ☝️ Index finger  | Move cursor    |
+| 🤏 Thumb + Index | Left click     |
+| ✌️ Two fingers   | Scroll         |
+| 👍 Thumb up      | Volume up      |
+| 👎 Thumb down    | Volume down    |
+| ✊ Fist           | Pause tracking |
+
+---
+
+## 🏗️ Project Structure
 
 ```
 /airctrl
-  /frontend     → React UI (Tailwind + CSS)
-  /electron     → Electron main + preload
-  /backend      → Python gesture_controller.py
+  /frontend     → React UI
+  /electron     → Electron main process
+  /backend      → Python gesture controller
   package.json  → Root scripts
   README.md
 ```
 
-## Troubleshooting
+---
 
-- **Camera not found**: Ensure webcam is connected and not used by another app.
-- **Python not found**: Make sure `python3` is in your PATH.
-- **Linux audio**: Install `amixer` (`sudo apt install alsa-utils`).
+## ⚠️ Important Notes
+
+* Use **Python 3.11** for best compatibility with MediaPipe
+* Ensure no other app is using your webcam
+* Run inside virtual environment for stability
+
+---
+
+## 🐛 Troubleshooting
+
+* **Camera not opening**
+
+  * Check webcam permissions
+  * Close apps like Zoom/Teams
+
+* **Backend crashing**
+
+  * Ensure correct Python version (3.11)
+  * Reinstall dependencies
+
+* **App shows OFFLINE**
+
+  * Backend is not running → check terminal logs
+
+---
+
+## 🚀 Future Improvements
+
+* Gesture customization UI
+* Multi-hand support
+* AI-based gesture learning
+* System-wide shortcuts integration
+
+---
+
+## 📌 Author
+
+**Akshit Bisht**
+
+---
+
+## ⭐ If you like this project
+
+Give it a star on GitHub — it helps a lot!
